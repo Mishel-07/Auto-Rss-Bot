@@ -23,4 +23,4 @@ async def magnet(bot):
 **Magnet:** `{magnet_link}`"""
             await bot.send_message(chat_id=SEND_CHANNEL, text=MES)
             SAVE_MSG[magnet_link] = magnet_link
-        await asyncio.sleep(600)
+        await asyncio.sleep(1500)
