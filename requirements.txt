@@ -2,3 +2,4 @@ pyrofork
 aiohttp
 requests
 bs4
+feedparser
