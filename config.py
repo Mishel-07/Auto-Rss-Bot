@@ -6,7 +6,7 @@ def chk_true_or_false(m):
   else:
     return False
 
-TORRENT = chk_true_or_false(environ.get('TORRENT', ''))
+TORRENT = chk_true_or_false(environ.get('TORRENT', None))
 
 
 API_ID = int(environ.get('API_ID', '283839'))
