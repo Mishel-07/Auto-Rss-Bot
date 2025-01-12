@@ -10,7 +10,7 @@ This is an auto rss bot that allows you to send a magnetic link or torrent to a 
 
 ## Options
 
-- CHANNEL: send magnet link channel id.
+- SEND_CHANNEL: send magnet link channel id.
 
 ## Credits
 
