@@ -1,4 +1,5 @@
 pyrofork
+TgCrypto
 aiohttp
 requests
 bs4
