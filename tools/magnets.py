@@ -2,7 +2,7 @@ from feedparser import parse
 import requests
 from bs4 import BeautifulSoup
 import asyncio
-from config import SEND_CHANNEL
+from config import SEND_CHANNEL, TORRENT
 
 SAVE_MSG = {}
 
@@ -14,10 +14,17 @@ async def magnet(bot):
         title = mv.entries[0]['title']
         description = mv.entries[0]['description']
         soup = BeautifulSoup(description, 'html.parser')
+        if TORRENT:
+            torrent_links = soup.find_all('a')
+            andi = torrent_links[3]['href']
+            linkt = requests.get(andi)
+            file_content = io.BytesIO(linkt.content)
+            file_content.name = f"{title}.torrent"
+            await bot.send_document(chat_id=SEND_CHANNEL, document=file_content)
         magnet_link_tag = soup.find('a', class_='skyblue-button')
         magnet_link = magnet_link_tag['href'] if magnet_link_tag else None
         global SAVE_MSG
-        if not SAVE_MSG.get(magnet_link):
+        if not TORRENT and not SAVE_MSG.get(magnet_link):           
             MES = f"""**Title:** `{title}`
             
 **Magnet:** `{magnet_link}`"""
