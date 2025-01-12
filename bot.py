@@ -33,7 +33,7 @@ class Bot(Client):
         app = web.AppRunner(web_app)
         await app.setup()
         await web.TCPSite(app, "0.0.0.0", 8080).start()
-        magnet(self)
+        await magnet(self)
         print(f"{me.first_name} Now Working 😘")
         
 Bot().run()
