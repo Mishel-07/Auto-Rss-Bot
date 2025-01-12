@@ -3,7 +3,7 @@
 
 from pyrogram import Client
 from aiohttp import web
-from os import environ
+from config import *
 
 routes = web.RouteTableDef()
 
@@ -11,9 +11,6 @@ routes = web.RouteTableDef()
 async def root_route_handler(request):
     return web.json_response("Hello World!")
 
-API_ID = int(environ.get('API_ID', ''))
-API_HASH = environ.get('API_HASH', '')
-BOT_TOKEN = environ.get('BOT_TOKEN', '')
 
 class Bot(Client):
     def __init__(self):
